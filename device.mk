@@ -208,6 +208,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.meizu
 
+# HWUI
+TARGET_USES_VULKAN := true
+
 # IPACM
 PRODUCT_PACKAGES += \
     IPACM_Filter_cfg.xml \
