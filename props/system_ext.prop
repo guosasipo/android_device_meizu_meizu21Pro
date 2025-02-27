@@ -1,3 +1,6 @@
+# Display
+sys.brightness.disable_gamma_conversion=true
+
 # Radio
 ro.telephony.sim_slots.count=2
 telephony.active_modems.max_count=2
