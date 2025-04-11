@@ -120,9 +120,7 @@ vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # Audio (Config)
 vendor/etc/audio/sku_pineapple/mixer_paths_pineapple_mtp.xml
-vendor/etc/audio/sku_pineapple/resourcemanager_pineapple_mtp.xml
 vendor/etc/card-defs.xml
-vendor/etc/usecaseKvManager.xml
 
 # Audio firmware
 vendor/firmware/RCV-m2481-cs35l43-delta-game-spk-prot.bin
