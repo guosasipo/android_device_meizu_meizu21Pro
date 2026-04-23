@@ -2164,6 +2164,7 @@ vendor/lib64/libnative-api.so
 
 # Secure element
 vendor/bin/hw/android.hardware.secure_element-service.qti
+vendor/etc/hal_uuid_map_config.xml
 vendor/etc/init/android.hardware.secure_element-service.qti.rc
 vendor/etc/permissions/com.android.se.xml
 vendor/etc/vintf/manifest/android.hardware.secure_element.xml
