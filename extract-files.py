@@ -101,6 +101,8 @@ blob_fixups: blob_fixups_user_type = {
             r')"[ \t]+Value=")true(")',
             r'\1false\2',
         ),
+    'vendor/etc/seccomp_policy/atfwd@2.0.policy': blob_fixup()
+        .add_line_if_missing('lseek: 1'),
     'vendor/etc/sensors/hals.conf': blob_fixup()
         .regex_replace(r'(?m)^sensors\.qsh\.so$', 'sensors.qsh_wrapper.so'),
     (
