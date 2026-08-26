@@ -1,0 +1,24 @@
+type vendor_hal_meizu_ifaa_default, domain;
+hal_server_domain(vendor_hal_meizu_ifaa_default, hal_meizu_ifaa)
+
+type vendor_hal_meizu_ifaa_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(vendor_hal_meizu_ifaa_default)
+
+allow vendor_hal_meizu_ifaa_default tee_device:chr_file { getattr ioctl open read write };
+allowxperm vendor_hal_meizu_ifaa_default tee_device:chr_file ioctl {
+    0x9801
+    0x9802
+    0x9803
+    0x9804
+};
+
+allow vendor_hal_meizu_ifaa_default {
+    vendor_dmabuf_qseecom_heap_device
+    vendor_dmabuf_qseecom_ta_heap_device
+}:chr_file { getattr ioctl open read };
+allowxperm vendor_hal_meizu_ifaa_default {
+    vendor_dmabuf_qseecom_heap_device
+    vendor_dmabuf_qseecom_ta_heap_device
+}:chr_file ioctl 0x4800;
+
+set_prop(vendor_hal_meizu_ifaa_default, vendor_ifaa_prop)

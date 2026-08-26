@@ -1,0 +1,9 @@
+set_prop(vendor_init, vendor_meizu_fingerprint_prop)
+set_prop(vendor_init, vendor_meizu_ims_dropset_prop)
+set_prop(vendor_init, vendor_ifaa_prop)
+set_prop(vendor_init, vendor_qcc_prop)
+set_prop(vendor_init, vendor_ssr_prop)
+
+allow vendor_init proc_hung_task:file w_file_perms;
+allow vendor_init vendor_sysfs_aw20072:file setattr;
+allow vendor_init vendor_sysfs_ssr_toggle:file w_file_perms;

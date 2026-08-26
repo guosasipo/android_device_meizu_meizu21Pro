@@ -1,0 +1,10 @@
+genfscon sysfs /class/qcom-battery/wireless_boost_en u:object_r:sysfs_powershare:s0
+genfscon sysfs /devices/virtual/meizu/mz_thermal_log/scene u:object_r:thermal_scene_sysfs:s0
+genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a80000.i2c/i2c-6/6-0028/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/b0000000.qcom,cnss-kiwi/recovery u:object_r:vendor_sysfs_ssr_toggle:s0
+
+genfscon sysfs /devices/platform/main_touch.0/gesture u:object_r:vendor_sysfs_meizu_gesture:s0
+
+genfscon proc /boost_pool/camera_pid u:object_r:vendor_proc_boost_pool:s0
+genfscon proc /mz_info/model_name u:object_r:vendor_proc_mz_info:s0
+genfscon proc /mz_info/rf_id u:object_r:vendor_proc_mz_info:s0

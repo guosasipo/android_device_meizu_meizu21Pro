@@ -1,0 +1,6 @@
+allow hal_camera_default dtof_only_device:chr_file { ioctl open read write };
+allow hal_camera_default mnt_vendor_file:dir search;
+allow hal_camera_default vendor_persist_dtof_file:dir search;
+allow hal_camera_default vendor_persist_dtof_file:file r_file_perms;
+
+add_service(hal_camera_default, hal_campostproc_service)

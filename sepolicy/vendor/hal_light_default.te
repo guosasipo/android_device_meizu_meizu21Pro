@@ -1,0 +1,1 @@
+allow hal_light_default vendor_sysfs_aw20072:file { getattr open write };

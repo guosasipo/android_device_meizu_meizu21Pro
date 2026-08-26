@@ -1,0 +1,5 @@
+hal_attribute(meizu_ifaa)
+
+binder_call(hal_meizu_ifaa_client, hal_meizu_ifaa_server)
+binder_call(hal_meizu_ifaa_server, hal_meizu_ifaa_client)
+hal_attribute_hwservice(hal_meizu_ifaa, vendor_hal_meizu_ifaa_hwservice)

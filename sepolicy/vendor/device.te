@@ -1,0 +1,2 @@
+type aac_richtap_dev_device, dev_type;
+type dtof_only_device, dev_type;

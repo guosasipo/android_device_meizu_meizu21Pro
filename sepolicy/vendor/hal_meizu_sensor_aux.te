@@ -1,0 +1,5 @@
+hal_attribute(meizu_sensor_aux)
+
+binder_call(hal_meizu_sensor_aux_client, hal_meizu_sensor_aux_server)
+binder_call(hal_meizu_sensor_aux_server, hal_meizu_sensor_aux_client)
+hal_attribute_hwservice(hal_meizu_sensor_aux, hal_meizu_sensor_aux_hwservice)

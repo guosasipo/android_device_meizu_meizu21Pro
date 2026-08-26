@@ -1,0 +1,3 @@
+vendor.meizu.sensor_aux::ISensorAux u:object_r:hal_meizu_sensor_aux_hwservice:s0
+vendor.meizu.hardware.fido::IFIDODaemon u:object_r:vendor_hal_meizu_fido_hwservice:s0
+vendor.meizu.hardware.ifaa::IIFAADaemon u:object_r:vendor_hal_meizu_ifaa_hwservice:s0

@@ -1,0 +1,27 @@
+persist.vendor.ims.dropset_feature u:object_r:vendor_meizu_ims_dropset_prop:s0 exact int
+persist.vendor.service.bt.adv_audio_mask u:object_r:vendor_bluetooth_prop:s0 exact int
+
+vendor.meizu.fido.aaid u:object_r:vendor_fido_prop:s0
+vendor.meizu.fido.key1 u:object_r:vendor_fido_prop:s0
+vendor.meizu.fido.key2 u:object_r:vendor_fido_prop:s0
+
+vendor.meizu.ifaa.version u:object_r:vendor_ifaa_prop:s0
+vendor.meizu.ifaa.key u:object_r:vendor_ifaa_prop:s0
+vendor.meizu.ifaa.seccam.version u:object_r:vendor_ifaa_prop:s0
+
+vendor.meizu.fingerprint.vendor u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.manufacturer u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.model u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.serial u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.in-display u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.x u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.y u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.width u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.height u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.detect.width u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.detect.height u:object_r:vendor_meizu_fingerprint_prop:s0
+
+vendor.thermal.proc_uclamp_max u:object_r:vendor_thermal_uclamp_prop:s0
+vendor.thermal.proc_uclamp_min u:object_r:vendor_thermal_uclamp_prop:s0
+vendor.thermal.top_uclamp_max u:object_r:vendor_thermal_uclamp_prop:s0
+vendor.thermal.top_uclamp_min u:object_r:vendor_thermal_uclamp_prop:s0

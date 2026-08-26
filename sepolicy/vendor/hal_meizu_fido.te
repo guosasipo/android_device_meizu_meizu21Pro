@@ -1,0 +1,5 @@
+hal_attribute(meizu_fido)
+
+binder_call(hal_meizu_fido_client, hal_meizu_fido_server)
+binder_call(hal_meizu_fido_server, hal_meizu_fido_client)
+hal_attribute_hwservice(hal_meizu_fido, vendor_hal_meizu_fido_hwservice)

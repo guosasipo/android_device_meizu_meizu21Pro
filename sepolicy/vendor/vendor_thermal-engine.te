@@ -1,0 +1,4 @@
+allow vendor_thermal-engine cgroup:file { getattr open read write };
+allow vendor_thermal-engine proc_sched:file { getattr open read write };
+allow vendor_thermal-engine thermal_scene_sysfs:file { open read write };
+set_prop(vendor_thermal-engine, vendor_thermal_uclamp_prop)

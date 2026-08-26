@@ -1,0 +1,15 @@
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.meizu u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator\.service\.meizu-richtap u:object_r:hal_vibrator_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.meizu\.hardware\.fido@2\.0-service u:object_r:vendor_hal_meizu_fido_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.meizu\.hardware\.ifaa@1\.0-service u:object_r:vendor_hal_meizu_ifaa_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.meizu\.sensor_aux@1\.0-default-service u:object_r:hal_meizu_sensor_aux_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.health-service\.meizu u:object_r:hal_lineage_health_default_exec:s0
+
+/dev/aac_richtap(_dev)? u:object_r:aac_richtap_dev_device:s0
+/dev/dtof_only u:object_r:dtof_only_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/logo_[ab] u:object_r:vendor_custom_ab_block_device:s0
+
+/mnt/vendor/persist/tof(/.*)? u:object_r:vendor_persist_dtof_file:s0
+
+/sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/99c000\.i2c/(.*?)/leds/aw20072_led/(all_light|effect) u:object_r:vendor_sysfs_aw20072:s0
+/sys/devices/soc0/subset_parts u:object_r:vendor_sysfs_subset_parts:s0

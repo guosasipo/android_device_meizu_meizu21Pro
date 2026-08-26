@@ -1,0 +1,3 @@
+binder_use(mediacodec)
+
+allow mediacodec vendor_sysfs_subset_parts:file r_file_perms;

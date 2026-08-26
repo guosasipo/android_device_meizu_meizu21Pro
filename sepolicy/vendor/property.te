@@ -1,0 +1,5 @@
+vendor_restricted_prop(vendor_fido_prop)
+vendor_restricted_prop(vendor_ifaa_prop)
+vendor_restricted_prop(vendor_meizu_fingerprint_prop)
+vendor_internal_prop(vendor_meizu_ims_dropset_prop)
+vendor_internal_prop(vendor_thermal_uclamp_prop)

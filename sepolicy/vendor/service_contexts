@@ -1,0 +1,2 @@
+android.hardware.camera.provider.ICameraProvider/external/0 u:object_r:hal_camera_service:s0
+vendor.qti.hardware.camera.postproc.IPostProcService/camerapostprocservice u:object_r:hal_campostproc_service:s0

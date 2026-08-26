@@ -1,0 +1,1 @@
+allow init vendor_proc_boost_pool:file w_file_perms;
