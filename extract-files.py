@@ -75,15 +75,24 @@ blob_fixups: blob_fixups_user_type = {
             r'\$\{ro\.boot\.vendor\.qspa:-default\}',
             'default',
         ),
-    'vendor/etc/init/hw/init.qcom.rc': blob_fixup()
-        .regex_replace(
-            r'(?m)^import /vendor/etc/init/hw/init\.qcom\.factory\.rc\n',
-            '',
-        ),
+    'system_ext/priv-app/WfdService/WfdService.apk': blob_fixup()
+        .apktool_patch('blob-patches/WfdService.patch'),
     'vendor/etc/init/init.spdaemon.rc': blob_fixup()
         .regex_replace(
             'ro.product.device=pineapple',
             'ro.boot.product.vendor.sku=pineapple'
+        ),
+    'vendor/etc/init/init.vendor.sensors.rc': blob_fixup()
+        .regex_replace(
+            r'(?m)^    exec_background u:r:vendor_qti_init_shell_bg:s0 -- '
+            r'/vendor/bin/init.qti.write.sh /sys/kernel/boot_slpi/boot 1\n\n',
+            '',
+        ),
+    'vendor/etc/init/vendor.qti.diag_userdebug.rc': blob_fixup()
+        .regex_replace(
+            r'(?m)^    chown system system /sys/bus/coresight/devices/coresight-modem-diag\n'
+            r'    chmod 664 /sys/bus/coresight/devices/coresight-modem-diag\n',
+            '',
         ),
     (
         'vendor/lib64/libdpps.so',
