@@ -1,9 +1,6 @@
 # Bluetooth
 bluetooth.device.default_name=Meizu 21 Pro
 
-# Display
-persist.sys.sf.color_mode=0
-
 # QTI
 ro.vendor.qti.va_odm.support=1
 
