@@ -449,12 +449,6 @@ if [ ! -f /vendor/firmware_mnt/verinfo/ver_info.txt -o "$prev_version_info" != "
 fi
 chmod g-w /data/vendor/modem_config
 setprop ro.vendor.ril.mbn_copy_completed 1
-#add by yanghen for audio qdss log  kba220901033411
-mkdir /config/stp-policy/coresight-stm:p_ost.policy
-chmod 660 /config/stp-policy/coresight-stm:p_ost.policy
-mkdir /config/stp-policy/coresight-stm:p_ost.policy/default
-chmod 660 /config/stp-policy/coresight-stm:p_ost.policy/default
-echo 0x10 > /sys/bus/coresight/devices/coresight-stm/traceid
 
 #check build variant for printk logging
 #current default minimum boot-time-default
@@ -462,34 +456,10 @@ buildvariant=`getprop ro.build.type`
 case "$buildvariant" in
     "userdebug" | "eng")
         #set default loglevel to KERN_INFO
-        echo "7 6 1 7" > /proc/sys/kernel/printk
+        echo "6 6 1 7" > /proc/sys/kernel/printk
         ;;
     *)
         #set default loglevel to KERN_WARNING
         echo "4 4 1 4" > /proc/sys/kernel/printk
         ;;
 esac
-
-#Flyme.telephony.liujianfeng.feature.1148448{@
-#mdlog
-chown -h shell /sys/devices/platform/soc/1004f000.tmc/coresight-tmc-etr1/block_size
-chmod 666 /sys/devices/platform/soc/1004f000.tmc/coresight-tmc-etr1/block_size
-chown -h shell /sys/devices/platform/soc/1004f000.tmc/coresight-tmc-etr1/buffer_size
-chmod 666 /sys/devices/platform/soc/1004f000.tmc/coresight-tmc-etr1/buffer_size
-chown -h shell /sys/devices/platform/soc/10048000.tmc/coresight-tmc-etr/block_size
-chmod 666 /sys/devices/platform/soc/10048000.tmc/coresight-tmc-etr/block_size
-chown -h shell /sys/devices/platform/soc/10048000.tmc/coresight-tmc-etr/buffer_size
-chmod 666 /sys/devices/platform/soc/10048000.tmc/coresight-tmc-etr/buffer_size
-chown -h shell /sys/bus/coresight/reset_source_sink
-chmod 666 /sys/bus/coresight/reset_source_sink
-chown -h system /sys/devices/platform/soc/1004f000.tmc/coresight-tmc-etr1/enable_sink
-chmod 666 /sys/devices/platform/soc/1004f000.tmc/coresight-tmc-etr1/enable_sink
-chown -h system /sys/devices/platform/soc/1004f000.tmc/coresight-tmc-etr1/out_mode
-chmod 666 /sys/devices/platform/soc/1004f000.tmc/coresight-tmc-etr1/out_mode
-chown -h system /sys/devices/platform/soc/10048000.tmc/coresight-tmc-etr/enable_sink
-chmod 666 /sys/devices/platform/soc/10048000.tmc/coresight-tmc-etr/enable_sink
-chown -h system /sys/devices/platform/10048000.tmc/coresight-tmc-etr/out_mode
-chmod 666 /sys/devices/platform/soc/10048000.tmc/coresight-tmc-etr/out_mode
-chown -h system /sys/devices/platform/soc/soc:modem_diag/coresight-modem-diag/enable_source
-chmod 666 /sys/devices/platform/soc/soc:modem_diag/coresight-modem-diag/enable_source
-#@}
