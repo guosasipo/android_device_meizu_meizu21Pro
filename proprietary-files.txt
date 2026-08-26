@@ -1872,11 +1872,6 @@ vendor/lib64/vendor.qti.qesdhalaidl-V1-ndk.so
 vendor/lib64/vendor.qti.qesdsys-V3-ndk.so
 vendor/lib64/vendor.qti.qesdsys-V4-ndk.so
 
-# QGuard
-vendor/bin/qguard
-vendor/etc/init/qguard.rc
-vendor/etc/qguard.json
-
 # QMI
 vendor/bin/irsc_util
 vendor/bin/qmipriod
