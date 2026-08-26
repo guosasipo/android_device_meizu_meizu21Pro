@@ -81,6 +81,32 @@ blob_fixups: blob_fixups_user_type = {
             'ro.boot.product.vendor.sku=pineapple'
         ),
     (
+        'vendor/lib64/libdpps.so',
+        'vendor/lib64/libsnapdragoncolor-manager.so',
+        'vendor/lib64/libsynclight.so',
+    ): blob_fixup()
+        .replace_needed(
+            'libtinyxml2.so',
+            'libtinyxml2-v34.so'
+        ),
+    (
+        'vendor/bin/poweropt-service',
+        'vendor/lib64/libaodoptfeature.so',
+        'vendor/lib64/libapengine.so',
+        'vendor/lib64/libgamepoweroptfeature.so',
+        'vendor/lib64/liblearningmodule.so',
+        'vendor/lib64/liboffscreenpoweroptfeature.so',
+        'vendor/lib64/libpowercallback.so',
+        'vendor/lib64/libpowercore.so',
+        'vendor/lib64/libpsmoptfeature.so',
+        'vendor/lib64/libstandbyfeature.so',
+        'vendor/lib64/libvideooptfeature.so',
+    ): blob_fixup()
+        .replace_needed(
+            'libtinyxml2.so',
+            'libtinyxml2-v34.so'
+        ),
+    (
         'vendor/lib64/camera/com.qti.eeprom.gt24p128c2csli_imx766.so',
         'vendor/lib64/camera/com.qti.eeprom.irs2381c_polar.so',
         'vendor/lib64/camera/com.qti.eeprom.truly_cmb433.so',
