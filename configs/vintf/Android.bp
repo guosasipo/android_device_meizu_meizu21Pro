@@ -1,0 +1,13 @@
+//
+// Copyright (C) 2026 The Android Open Source Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "secure_element-service.meizu.xml",
+    filename: "secure_element-service.xml",
+    src: "secure_element-service.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
