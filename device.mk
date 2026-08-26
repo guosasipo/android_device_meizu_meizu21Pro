@@ -322,6 +322,16 @@ PRODUCT_PACKAGES += \
 # Recovery
 $(call soong_config_set_bool,recovery,target_recovery_uses_qti_drm,true)
 
+# Runtime symlinks required by stock blobs
+PRODUCT_PACKAGES += \
+    CneApp.libvndfwk_detect_jni.qti_vendor_symlink \
+    ims_libimscamera_jni_symlink \
+    ims_libimsmedia_jni_symlink \
+    vendor_lib64EGL_adreno_symlink \
+    vendor_lib64GLESv2_adreno_symlink \
+    vendor_lib64q3dtools_adreno_symlink \
+    libqti_vndfwk_detect_vendor
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
@@ -440,6 +450,11 @@ PRODUCT_PACKAGES += \
     wpa_cli \
     wpa_supplicant \
     wpa_supplicant.conf
+
+PRODUCT_PACKAGES += \
+    firmware_wlanmdsp.otaupdate_symlink \
+    firmware_wlan_mac.bin_symlink \
+    firmware_WCNSS_qcom_cfg.ini_symlink
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.aware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.aware.xml \

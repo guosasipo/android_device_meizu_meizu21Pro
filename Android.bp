@@ -1,0 +1,64 @@
+//
+// Copyright (C) 2024 The Android Open Source Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {
+}
+
+install_symlink {
+    name: "firmware_wlanmdsp.otaupdate_symlink",
+    vendor: true,
+    installed_location: "firmware/wlanmdsp.otaupdate",
+    symlink_target: "/data/vendor/firmware/wlanmdsp.mbn",
+}
+
+install_symlink {
+    name: "firmware_wlan_mac.bin_symlink",
+    vendor: true,
+    installed_location: "firmware/wlan/qca_cld/kiwi_v2/wlan_mac.bin",
+    symlink_target: "/mnt/vendor/persist/kiwi_v2/wlan_mac.bin",
+}
+
+install_symlink {
+    name: "firmware_WCNSS_qcom_cfg.ini_symlink",
+    vendor: true,
+    installed_location: "firmware/wlan/qca_cld/kiwi_v2/WCNSS_qcom_cfg.ini",
+    symlink_target: "/vendor/etc/wifi/kiwi_v2/WCNSS_qcom_cfg.ini",
+}
+
+install_symlink {
+    name: "vendor_lib64EGL_adreno_symlink",
+    vendor: true,
+    installed_location: "lib64/libEGL_adreno.so",
+    symlink_target: "egl/libEGL_adreno.so",
+}
+
+install_symlink {
+    name: "vendor_lib64GLESv2_adreno_symlink",
+    vendor: true,
+    installed_location: "lib64/libGLESv2_adreno.so",
+    symlink_target: "egl/libGLESv2_adreno.so",
+}
+
+install_symlink {
+    name: "vendor_lib64q3dtools_adreno_symlink",
+    vendor: true,
+    installed_location: "lib64/libq3dtools_adreno.so",
+    symlink_target: "egl/libq3dtools_adreno.so",
+}
+
+install_symlink {
+    name: "ims_libimscamera_jni_symlink",
+    system_ext_specific: true,
+    installed_location: "priv-app/ims/lib/arm64/libimscamera_jni.so",
+    symlink_target: "/system_ext/lib64/libimscamera_jni.so",
+}
+
+install_symlink {
+    name: "ims_libimsmedia_jni_symlink",
+    system_ext_specific: true,
+    installed_location: "priv-app/ims/lib/arm64/libimsmedia_jni.so",
+    symlink_target: "/system_ext/lib64/libimsmedia_jni.so",
+}
