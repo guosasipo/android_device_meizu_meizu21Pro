@@ -218,6 +218,11 @@ blob_fixups: blob_fixups_user_type = {
             'android.hardware.graphics.allocator-V1-ndk.so',
             'android.hardware.graphics.allocator-V2-ndk.so',
         ),
+    'vendor/lib64/libVoiceSdk.so': blob_fixup()
+        .replace_needed(
+            'libtensorflowlite_c.so',
+            'libtensorflowlite_c_vendor.so',
+        ),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
