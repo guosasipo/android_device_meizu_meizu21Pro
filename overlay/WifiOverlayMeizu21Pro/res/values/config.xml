@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string-array name="config_wifiCharsetsForSsidTranslation">
+        <item>all,EUC-JP</item>
+        <item>zh,GBK</item>
+        <item>ko,EUC-KR</item>
+    </string-array>
+    <integer-array name="config_wifiConnectedScanIntervalScheduleSec">
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+        <item>160</item>
+    </integer-array>
+    <integer-array name="config_wifiDisconnectedScanIntervalScheduleSec">
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>30</item>
+    </integer-array>
+    <integer-array name="config_wifiDisconnectedScanType">
+        <item>2</item>
+        <item>2</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>2</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_wifiRssiLevelThresholds">
+        <item>-77</item>
+        <item>-63</item>
+    </integer-array>
+    <bool name="config_wifi5ghzSupport">true</bool>
+    <bool name="config_wifi6ghzSupport">true</bool>
+    <bool name="config_wifiAllowMultipleNetworksOnSameAwareNdi">true</bool>
+    <bool name="config_wifi_ap_mac_randomization_supported">false</bool>
+    <bool name="config_wifi_background_scan_support">true</bool>
+    <bool name="config_wifi_connected_mac_randomization_supported">true</bool>
+    <bool name="config_wifiDriverSupportedNl80211RegChangedEvent">true</bool>
+    <bool name="config_wifiEnablePartialInitialScan">true</bool>
+    <bool name="config_wifiForcedSoftApRestartWhenCountryCodeChanged">false</bool>
+    <bool name="config_wifiMultiStaMultiInternetConcurrencyEnabled">true</bool>
+    <bool name="config_wifiMultiStaRestrictedConcurrencyEnabled">true</bool>
+    <bool name="config_wifiNetworkCentricQosPolicyFeatureEnabled">true</bool>
+    <bool name="config_wifi_only_link_same_credential_configurations">false</bool>
+    <bool name="config_wifi_p2p_mac_randomization_supported">true</bool>
+    <bool name="config_wifiSaeH2eSupported">true</bool>
+    <bool name="config_wifiSaeUpgradeOffloadEnabled">true</bool>
+    <bool name="config_wifiSoftApDynamicCountryCodeUpdateSupported">true</bool>
+    <bool name="config_wifiSoftap6ghzSupported">true</bool>
+    <bool name="config_wifi_softap_acs_supported">true</bool>
+    <bool name="config_wifiSoftapAcsIncludeDfs">true</bool>
+    <bool name="config_wifiSoftapAutoUpgradeToBridgedConfigWhenSupported">false</bool>
+    <bool name="config_wifiSoftapHeSuBeamformeeSupported">true</bool>
+    <bool name="config_wifiSoftapHeSuBeamformerSupported">true</bool>
+    <bool name="config_wifi_softap_ieee80211ac_supported">true</bool>
+    <bool name="config_wifiSoftapIeee80211axSupported">true</bool>
+    <bool name="config_wifiSoftapIeee80211beSupported">true</bool>
+    <bool name="config_wifiSoftapOweSupported">true</bool>
+    <bool name="config_wifiSoftapOweTransitionSupported">true</bool>
+    <bool name="config_wifi_softap_sae_supported">true</bool>
+    <bool name="config_wifiStaDynamicCountryCodeUpdateSupported">true</bool>
+    <bool name="config_wifiUpdateCountryCodeFromScanResultGeneric">true</bool>
+    <bool name="config_wifiBridgedSoftApSupported">true</bool>
+
+    <integer name="config_wifiBssidBlocklistMonitorApUnableToHandleNewStaThreshold">3</integer>
+    <integer name="config_wifiDelayDisconnectOnImsLostMs">1000</integer>
+    <integer name="config_wifiDisableReasonAssociationRejectionThreshold">8</integer>
+    <integer name="config_wifiDisableReasonAuthenticationFailureThreshold">8</integer>
+    <integer name="config_wifiDisableReasonByWrongPasswordThreshold">0</integer>
+    <integer name="config_wifiFrameworkUnmeteredNetworkBonus">20</integer>
+    <integer name="config_wifiHardwareSoftapMaxClientCount">5</integer>
+    <integer name="config_wifiMaxNumWifiConfigurations">1000</integer>
+
+    <string name="config_wifi_tcp_buffers" translatable="false">2097152,4194304,8388608,2097152,4194304,8388608</string>
+</resources>
