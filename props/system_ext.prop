@@ -1,0 +1,6 @@
+# Radio
+ro.telephony.sim_slots.count=2
+telephony.active_modems.max_count=2
+
+# Media
+vendor.media.target_variant=_pineapple
