@@ -82,6 +82,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "ueventd.meizu21Pro.rc",
+    filename: "ueventd.qcom.userdebug.rc",
+    src: "etc/ueventd.meizu21Pro.rc",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "ueventd.qcom.rc",
     filename: "ueventd.rc",
     src: "etc/ueventd.qcom.rc",

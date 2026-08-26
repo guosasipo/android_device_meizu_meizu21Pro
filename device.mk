@@ -241,6 +241,7 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.recovery.qcom.rc \
     init.target.rc \
+    ueventd.meizu21Pro.rc \
     ueventd-odm.rc \
     ueventd.qcom.rc
 

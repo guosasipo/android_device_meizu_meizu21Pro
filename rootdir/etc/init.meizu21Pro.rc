@@ -1,0 +1,12 @@
+# Copyright (C) 2026 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+
+on property:vendor.all.modules.ready=1
+    write /sys/kernel/cnss/recovery 3
+
+on property:sys.boot_completed=1
+    chmod 0660 /sys/class/leds/aw20072_led/all_light
+    chmod 0660 /sys/class/leds/aw20072_led/effect
+    chown system system /sys/class/leds/aw20072_led/all_light
+    chown system system /sys/class/leds/aw20072_led/effect
