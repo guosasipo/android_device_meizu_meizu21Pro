@@ -1,0 +1,434 @@
+
+# Copyright (c) 2019-2021, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+#
+# Changes from Qualcomm Innovation Center are provided under the following license:
+# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted (subject to the limitations in the
+# disclaimer below) provided that the following conditions are met:
+#
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#
+#     * Neither the name of Qualcomm Innovation Center, Inc. nor the names of
+#       its contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
+# GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+# HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+# ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+# GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+import /vendor/etc/init/hw/init.qti.kernel.rc
+import /vendor/etc/init/hw/init.fac.rc
+
+on early-init
+    write /proc/bootprof "INIT:early-init"
+    write /proc/sys/kernel/printk_devkmsg ratelimited
+    export MEMTAG_OPTIONS off
+
+on init
+    write /proc/bootprof "INIT:init"
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
+    chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
+    start logd
+    write /proc/sys/kernel/hung_task_timeout_secs 120
+    write /proc/sys/kernel/hung_task_warnings 65535
+    write /proc/sys/kernel/hung_task_check_count 65535
+    write /proc/sys/kernel/hung_task_panic 0
+
+
+on property:ro.debuggable=1
+    write /proc/sys/kernel/panic_on_rcu_stall 1
+
+
+on early-fs
+    write /proc/bootprof "INIT:start vold"
+    start vold
+
+on fs
+    write /proc/bootprof "INIT:Mount_START"
+    start hwservicemanager
+    mount_all /vendor/etc/fstab.qcom --early
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    restorecon_recursive /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/secnvm 0770 system system
+    mkdir /mnt/vendor/persist/data 0700 system system
+    write /proc/bootprof "INIT:Mount_END"
+
+on post-fs
+    write /proc/bootprof "INIT:post-fs"
+    #Execute virtualization manager
+    enable vendor.qvirtservice_rs
+    start  vendor.qvirtservice_rs
+
+on late-fs
+    write /proc/bootprof "INIT:late-fs"
+    wait_for_prop hwservicemanager.ready true
+    #exec_start wait_for_keymaster
+    mount_all /vendor/etc/fstab.qcom --late
+
+on post-fs-data
+    write /proc/bootprof "INIT:post-fs-data"
+    # Permissions for mz_rpmb_ctl, add by luoyongjie1@bsp {@
+    chown system system /dev/mz_rpmb_ctl
+    chmod 0660 /dev/mz_rpmb_ctl
+    # }
+    mkdir /vendor/data/tombstones 0771 system system
+    # Enable WLAN cold boot calibration
+    write /sys/kernel/cnss/fs_ready 1
+
+
+    # Create xm_kelog directory
+    mkdir /data/vendor/xm_kelog 0770 root system
+
+    # change rstinfo interface files owner & group. bsp-stability{@
+    chown system system /sys/rstinfo/rstinfo_enable
+    chown system system /proc/bootloader_log
+    restorecon /sys/rstinfo/rstinfo_enable
+    chown system system /proc/stability/rstinfo_cnt
+    chown system system /proc/stability/rstinfo_debug
+    chown system system /proc/stability/rstinfo_cnt_log
+    chown system system /proc/stability/rstinfo_rst_log
+    chown system system /proc/stability/rstinfo_android_cnt
+    chown system system /proc/stability/last_rstlog
+    chown system system /proc/stability/rstssr_times
+    chown system system /proc/stability/rstssr_current
+    chown system system /proc/stability/rstssr_record
+    chown system system /proc/stability/kelog
+    chown system system /proc/stability/rootinfo_cnt
+    # trigger rstinfo to load reset_reason
+    write /sys/rstinfo/rstinfo_enable 0xff
+    # @}
+
+    # Permissions for dtof, add by chenyongjian@BSP {@
+    chown system system /dev/dtof_only
+    chmod 0666 /dev/dtof_only
+
+    chown system system /dev/stmvl53l1_ranging
+    chmod 0666 /dev/stmvl53l1_ranging
+
+    chown system input /sys/class/meizu/dtof/timing_budget
+    chmod 0660 /sys/class/meizu/dtof/timing_budget
+    # @}
+
+on early-boot
+    write /proc/bootprof "INIT:early-boot"
+    verity_update_state
+
+on boot
+    write /proc/bootprof "INIT:boot"
+    write /dev/cpuset/audio-app/cpus 0-6
+    # Add a cpuset for the camera daemon
+    # We want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/mems 0
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+    chmod 0660 /dev/cpuset/camera-daemon/tasks
+    chown system /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_enable
+    chmod 0660 /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_enable
+    chown system /sys/devices/platform/soc/990000.spi/spi_master/spi0/spi0.0/trusted_touch_enable
+    chmod 0660 /sys/devices/platform/soc/990000.spi/spi_master/spi0/spi0.0/trusted_touch_enable
+    chown system /sys/devices/system/cpu/hyp_core_ctl/enable
+    chown system /sys/devices/system/cpu/hyp_core_ctl/hcc_min_freq
+
+    # FLYME|w-majipeng@meizu.com|add for heavy game opt. {@
+    write /dev/cpuset/heavy-game/cpus 2-7
+    write /dev/cpuctl/heavy-game/cpu.uclamp.max 45
+    # @}
+
+    # Permissions for haptic , add by zuowang@BSP {@
+    chmod 0666 /sys/class/leds/vibrator_5f/f0_cali
+    chown system system /sys/class/leds/vibrator_5f/f0_cali
+    # @}
+
+    # Permissions for ForceTouch, add by zuowang@BSP {@
+    chmod 0666 /dev/ndt
+    chmod 0666 /sys/cs_press/cs_press/sleep
+    chmod 0666 /sys/cs_press/cs_press/cal_data
+    chmod 0666 /sys/cs_press/cs_press/force_value
+    chmod 0660 /sys/cs_press/cs_press/fw_info
+    chown system system /dev/ndt
+    chown system system /sys/cs_press/cs_press/sleep
+    chown system system /sys/cs_press/cs_press/cal_data
+    chown system system /sys/cs_press/cs_press/force_value
+    chown system system /sys/cs_press/cs_press/fw_info
+    # @}
+
+    # Permissions for ir_tx, add by zuowang@bsp{@
+    chown system system /dev/lirc0
+    chmod 0777 /dev/lirc0
+    chown system system /sys/class/rc/rc0/transmit
+    chmod 0666  /sys/class/rc/rc0/transmit
+    # @}
+
+    # Permissions for breathing light, add by zuowang@bsp{@
+    chmod 0666  /sys/class/leds/aw20072_led/effect
+    chown system system /sys/class/leds/aw20072_led/effect
+
+    chmod 0666  /sys/class/leds/aw20072_led/light
+    chown system system /sys/class/leds/aw20072_led/light
+
+    chmod 0666  /sys/class/leds/aw20072_led/all_light
+    chown system system /sys/class/leds/aw20072_led/all_light
+
+    chmod 0666  /sys/class/leds/aw20072_led/alone_light
+    chown system system /sys/class/leds/aw20072_led/alone_light
+	
+	chmod 0777  /dev/aw20072_led
+    chown system system /dev/aw20072_led
+    # @}
+
+    # Permissions for tp  {@start
+    chmod 0660 /sys/class/meizu/tp/gesture_control
+    chown system system /sys/class/meizu/tp/gesture_control
+
+    chmod 0660 /sys/class/meizu/tp/gesture_data
+    chown system system /sys/class/meizu/tp/gesture_data
+
+    chmod 0660 /sys/class/meizu/main_tp/intr2_test_node
+    chown system system /sys/class/meizu/main_tp/intr2_test_node
+
+    chmod 0660 /sys/class/meizu/main_tp/intr2_enable_node
+    chown system system /sys/class/meizu/main_tp/intr2_enable_node
+
+    chmod 0660 /sys/class/meizu/main_tp/frame_rate_node
+    chown system system /sys/class/meizu/main_tp/frame_rate_node
+
+    chmod 0660 /sys/class/meizu/main_tp/charge_enable_node
+    chown system system /sys/class/meizu/main_tp/charge_enable_node
+
+    chmod 0660 /sys/class/meizu/main_tp/game_mode_node
+    chown system system /sys/class/meizu/main_tp/game_mode_node
+
+    chmod 0660 /sys/class/meizu/main_tp/goodix_sleep
+    chown system system /sys/class/meizu/main_tp/goodix_sleep
+
+    chmod 0660 /sys/class/meizu/main_tp/reset
+    chown system system /sys/class/meizu/main_tp/reset
+
+    chmod 0660 /sys/class/meizu/main_tp/fod_report
+    chown system system /sys/class/meizu/main_tp/fod_report
+
+    chmod 0660 /sys/class/meizu/main_tp/fw_update/fwimage
+    chown system system /sys/class/meizu/main_tp/fw_update/fwimage
+
+    chmod 0660 /sys/class/meizu/main_tp/fw_update/result
+    chown system system /sys/class/meizu/main_tp/fw_update/result
+
+    chmod 0660 /sys/class/meizu/main_tp/fw_update/update_en
+    chown system system /sys/class/meizu/main_tp/fw_update/update_en
+
+    chmod 0660 /sys/class/meizu/main_tp/report_port_distance_node
+    chown system system /sys/class/meizu/main_tp/report_port_distance_node
+
+    chmod 0660 /sys/class/meizu/main_tp/esd_info
+    chown system system /sys/class/meizu/main_tp/esd_info
+
+    chmod 0660 /sys/class/meizu/main_tp/gesture_info
+    chown system system /sys/class/meizu/main_tp/gesture_info
+
+    chmod 0660 /sys/class/meizu/main_tp/screen_mode_node
+    chown system system /sys/class/meizu/main_tp/screen_mode_node
+
+    chmod 0660 /sys/class/meizu/main_tp/screen_game_mode_node
+    chown system system /sys/class/meizu/main_tp/screen_game_mode_node
+
+    chmod 0666 /sys/kernel/display_drivers/aod_light_mode
+    chown system system /sys/kernel/display_drivers/aod_light_mode
+
+    chmod 0666 /sys/kernel/display_drivers/adfr_minfps
+    chown system system /sys/kernel/display_drivers/adfr_minfps
+
+    chmod 0666 /sys/kernel/display_drivers/dynamic_te
+    chown system system /sys/kernel/display_drivers/dynamic_te
+
+    chmod 0666 /dev/star_brightness
+    chown system system /dev/star_brightness
+
+    chmod 0666 /sys/kernel/display_drivers/star_brightness
+    chown system system /sys/kernel/display_drivers/star_brightness
+
+    chmod 0666 /sys/kernel/display_drivers/synclights_enable
+    chown system system /sys/kernel/display_drivers/synclights_enable
+
+    chmod 0666 /sys/kernel/display_drivers/hbm
+    chown system system /sys/kernel/display_drivers/hbm
+
+    chmod 0666 /sys/kernel/display_drivers/hbm_ready_status
+    chown system system /sys/kernel/display_drivers/hbm_ready_status
+
+    chmod 0666 /sys/kernel/display_drivers/aod_seamless_transition_status
+    chown system system /sys/kernel/display_drivers/aod_seamless_transition_status
+#@end }
+
+on property:vendor.display.lcd_density=560
+   setprop dalvik.vm.heapgrowthlimit 256m
+
+on property:vendor.display.lcd_density=640
+   setprop dalvik.vm.heapgrowthlimit 512m
+
+on init && property:ro.boot.mode=charger
+    wait_for_prop vendor.all.modules.ready 1
+    mount_all /vendor/etc/charger_fw_fstab.qti --early
+    start vendor.pd_mapper
+    wait /sys/kernel/boot_adsp/boot
+    write /sys/kernel/boot_adsp/boot 1
+
+on charger
+    start vendor.power_off_alarm
+    write /sys/kernel/cnss/charger_mode 1
+
+on property:sys.bootstat.first_boot_completed=1
+    write /proc/bootprof "INIT:boot_completed"
+    write /proc/bootprof "0"
+# Permissions for charger {
+    chmod 0666 /sys/class/meizu/charger/wired/cmd_discharging
+    chown system system /sys/class/meizu/charger/wired/cmd_discharging
+
+    chmod 0444 /sys/class/meizu/charger/wired/soh
+    chown system system /sys/class/meizu/charger/wired/soh
+
+    chmod 0666 /sys/class/meizu/charger/wireless/reverse_chg_enable
+    chown system system /sys/class/meizu/charger/wireless/reverse_chg_enable
+
+    chmod 0444 /sys/class/meizu/charger/wireless/reverse_chg_stat
+    chown system system /sys/class/meizu/charger/wireless/reverse_chg_stat
+
+    chmod 0444 /sys/class/meizu/charger/wireless/txid
+    chown system system /sys/class/meizu/charger/wireless/txid
+
+    chmod 0666 /sys/class/meizu/charger/wireless/tx_fan_mode
+    chown system system /sys/class/meizu/charger/wireless/tx_fan_mode
+
+    chmod 0666 /sys/class/meizu/charger/wireless/wls_level
+    chown system system /sys/class/meizu/charger/wireless/wls_level
+
+    chmod 0666 /sys/class/meizu/charger/wired/wired_level
+    chown system system /sys/class/meizu/charger/wired/wired_level
+
+    chmod 0666 /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,ucsi/typec/port0/data_role
+    chown system system /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,ucsi/typec/port0/data_role
+	
+    # set bt property
+    setprop persist.vendor.service.bdroid.ssrlvl 3
+    setprop persist.vendor.service.bdroid.soc.alwayson true
+    setprop persist.vendor.service.bt.adv_audio_mask 0
+# Permissions for charger }
+#service vendor.lowi /vendor/bin/sscrpcd
+#   class core
+#   user system
+#   group system wakelock
+#   capabilities BLOCK_SUSPEND
+
+#pd-mapper
+service vendor.pd_mapper /vendor/bin/pd-mapper
+    class core
+    user system
+    group system
+
+#Peripheral manager
+service vendor.per_mgr /vendor/bin/pm-service
+    class core
+    user system
+    group system
+    ioprio rt 4
+
+service vendor.per_proxy /vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    disabled
+
+#service vendor.mdm_helper /vendor/bin/mdm_helper
+#    class core
+#    group system wakelock
+#    disabled
+
+service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
+    class core
+    oneshot
+
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
+
+on property:sys.shutdown.requested=*
+    write /sys/kernel/qcom_rproc/shutdown_in_progress 1
+    stop vendor.per_proxy
+
+on property:vold.decrypt=trigger_restart_framework
+   start vendor.cnss_diag
+
+service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
+   class main
+   user system
+   group system wifi inet sdcard_rw media_rw diag
+   oneshot
+
+on early-boot && property:persist.vendor.pcie.boot_option=*
+    write /sys/bus/platform/devices/1c00000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
+    write /sys/bus/platform/devices/1c08000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
+
+on zygote-start
+    write /proc/bootprof "INIT:zygote-start"
+
+on property:sys.aging.running=1
+    setprop ro.build.shutdown_timeout 3
+
+service fan_control_turn_on /vendor/bin/fan_service 1
+    class late_start
+    user root
+    disabled
+    oneshot
+
+service fan_control_turn_off /vendor/bin/fan_service 0
+    class late_start
+    user root
+    disabled
+    oneshot
