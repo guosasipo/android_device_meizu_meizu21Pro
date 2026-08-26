@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string-array name="config_network_type_tcp_buffers">
+        <item>NR_SA_MMWAVE:2097152,6291456,16777216,512000,2097152,8388608</item>
+        <item>NR_SA:2097152,6291456,16777216,512000,2097152,8388608</item>
+        <item>NR_NSA_MMWAVE:2097152,6291456,16777216,512000,2097152,8388608</item>
+        <item>NR_NSA:2097152,6291456,16777216,512000,2097152,8388608</item>
+        <item>LTE:2097152,4194304,8388608,262144,524288,1048576</item>
+        <item>LTE_CA:4096,6291456,12582912,4096,1048576,4194304</item>
+        <item>UMTS:4094,87380,1220608,4096,16384,1220608</item>
+        <item>HSPA:4094,87380,1220608,4096,16384,1220608</item>
+        <item>HSUPA:4094,87380,1220608,4096,16384,1220608</item>
+        <item>HSDPA:4094,87380,1220608,4096,16384,1220608</item>
+        <item>HSPA+:4094,87380,1220608,4096,16384,1220608</item>
+        <item>EDGE:4093,26280,35040,4096,16384,35040</item>
+        <item>GPRS:4092,8760,11680,4096,8760,11680</item>
+        <item>EvDo_0:4094,87380,524288,4096,16384,262144</item>
+        <item>EvDo_A:4094,87380,524288,4096,16384,262144</item>
+        <item>EvDo_B:4094,87380,524288,4096,16384,262144</item>
+    </string-array>
+    <string-array name="radioAttributes">
+        <item>1,1</item>
+        <item>0,1</item>
+        <item>7,1</item>
+    </string-array>
+    <bool name="config_enable_iwlan_handover_policy">false</bool>
+    <bool name="config_enhanced_iwlan_handover_check">false</bool>
+    <string name="config_qualified_networks_service_package" translatable="false">vendor.qti.iwlan</string>
+    <string name="config_wlan_data_service_package" translatable="false">vendor.qti.iwlan</string>
+    <string name="config_wlan_network_service_package" translatable="false">vendor.qti.iwlan</string>
+</resources>

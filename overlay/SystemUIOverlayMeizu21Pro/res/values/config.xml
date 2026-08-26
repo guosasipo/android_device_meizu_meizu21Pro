@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <bool name="config_vibrateOnIconAnimation">true</bool>
+    <bool name="doze_double_tap_proximity_check">true</bool>
+    <bool name="doze_display_state_supported">true</bool>
+    <integer name="config_udfpsDeviceEntryIconLongPress">2147483647</integer>
+</resources>

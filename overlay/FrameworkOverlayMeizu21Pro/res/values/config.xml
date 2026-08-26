@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <bool name="config_automatic_brightness_available">true</bool>
+    <bool name="config_carrier_volte_available">true</bool>
+    <bool name="config_device_volte_available">true</bool>
+    <bool name="config_device_vt_available">true</bool>
+    <bool name="config_device_wfc_ims_available">true</bool>
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+    <bool name="config_dozePulsePickup">true</bool>
+    <bool name="config_enableAutoPowerModes">true</bool>
+    <bool name="config_enableHapticTextHandle">true</bool>
+    <bool name="config_enableMultiUserUI">true</bool>
+    <bool name="config_enableWifiDisplay">true</bool>
+    <bool name="config_fillMainBuiltInDisplayCutout">true</bool>
+    <bool name="config_hotswapCapable">true</bool>
+    <bool name="config_intrusiveNotificationLed">true</bool>
+    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
+    <bool name="config_setColorTransformAccelerated">true</bool>
+    <bool name="config_showNavigationBar">true</bool>
+    <bool name="config_speed_up_audio_on_mt_calls">true</bool>
+    <bool name="config_supportAudioSourceUnprocessed">true</bool>
+    <bool name="config_supportsMicToggle">true</bool>
+    <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
+    <bool name="config_telephony5gNonStandalone">true</bool>
+    <bool name="config_telephony5gStandalone">true</bool>
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+    <bool name="config_voice_data_sms_auto_fallback">true</bool>
+    <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
+    <bool name="skip_restoring_network_selection">true</bool>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">500</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">2000</integer>
+    <integer name="config_bluetooth_idle_cur_ma">4</integer>
+    <integer name="config_bluetooth_operating_voltage_mv">4000</integer>
+    <integer name="config_bluetooth_rx_cur_ma">18</integer>
+    <integer name="config_bluetooth_tx_cur_ma">33</integer>
+    <integer name="config_default_cellular_usage_setting">-1</integer>
+    <integer name="config_defaultPeakRefreshRate">120</integer>
+    <integer name="config_defaultRefreshRate">0</integer>
+    <integer name="config_multiuserMaximumUsers">4</integer>
+    <integer name="config_num_physical_slots">2</integer>
+    <integer name="config_screenBrightnessDoze">17</integer>
+    <integer name="config_shutdownBatteryTemperature">600</integer>
+    <integer-array name="config_availableColorModes">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+    </integer-array>
+    <item name="config_screenBrightnessDozeFloat" type="dimen" format="float">0.0629921</item>
+    <item name="config_screenBrightnessSettingDefaultFloat" type="dimen" format="float">0.484958</item>
+    <item name="config_screenBrightnessSettingMaximumFloat" type="dimen" format="float">1.0</item>
+    <item name="config_screenBrightnessSettingMinimumFloat" type="dimen" format="float">0.0</item>
+    <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <string name="config_dozeDoubleTapSensorType" translatable="false">org.lineageos.sensor.double_tap</string>
+    <string name="config_mainBuiltInDisplayCutout" translatable="false">M0,104C20.99,104 38,86.99 38,66C38,45.01 20.99,28 0,28C-20.99,28 -38,45.01 -38,66C-38,86.99 -20.99,104 0,104Z</string>
+    <string name="config_mainBuiltInDisplayCutoutRectApproximation" translatable="false">M 0.0,0.0 h 80 v 130 h -80 Z</string>
+    <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
+</resources>

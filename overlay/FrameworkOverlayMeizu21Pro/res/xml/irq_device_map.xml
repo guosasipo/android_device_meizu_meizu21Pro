@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<irq-device-map>
+    <device name="pm8xxx_rtc_alarm">
+        <subsystem>Alarm</subsystem>
+    </device>
+</irq-device-map>

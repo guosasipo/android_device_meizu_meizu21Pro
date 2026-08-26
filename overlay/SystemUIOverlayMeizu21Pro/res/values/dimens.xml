@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <item name="pixel_pitch" type="dimen" format="float">50.0</item>
+    <dimen name="status_bar_icons_padding_end">0dp</dimen>
+    <dimen name="status_bar_icons_padding_start">0dp</dimen>
+    <dimen name="status_bar_padding_end">0dp</dimen>
+    <dimen name="status_bar_padding_start">20dp</dimen>
+</resources>
