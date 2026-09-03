@@ -379,7 +379,8 @@ PRODUCT_PACKAGES += \
     qti-telephony-utils-prd \
     qti_telephony_utils.xml \
     qti_telephony_utils_prd.xml \
-    telephony-ext
+    telephony-ext \
+    vendor.meizu.qdp-profile
 
 PRODUCT_PACKAGES += \
     qcrilNrDb_vendor

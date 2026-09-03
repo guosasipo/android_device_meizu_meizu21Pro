@@ -4,6 +4,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.meizu\.hardware\.ifaa@1\.0-service u:object_r:vendor_hal_meizu_ifaa_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.meizu\.sensor_aux@1\.0-default-service u:object_r:hal_meizu_sensor_aux_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.health-service\.meizu u:object_r:hal_lineage_health_default_exec:s0
+/(vendor|system/vendor)/bin/vendor\.meizu\.qdp-profile u:object_r:vendor_meizu_qdp_profile_exec:s0
 
 /dev/aac_richtap(_dev)? u:object_r:aac_richtap_dev_device:s0
 /dev/dtof_only u:object_r:dtof_only_device:s0
