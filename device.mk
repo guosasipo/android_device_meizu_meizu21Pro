@@ -365,6 +365,7 @@ PRODUCT_COPY_FILES += \
 
 # Telephony
 PRODUCT_PACKAGES += \
+    MeizuImsConfig \
     extphonelib \
     extphonelib-product \
     extphonelib.xml \
