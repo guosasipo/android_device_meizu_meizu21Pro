@@ -36,23 +36,99 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
 -->
 
 <displayConfiguration>
-  <screenBrightnessMap interpolation="linear">
+  <screenBrightnessMap>
     <point>
       <value>0.0</value>
-      <nits>2.0</nits>
+      <nits>3.0</nits>
     </point>
     <point>
-      <value>0.62</value>
-      <nits>500.0</nits>
+      <value>0.027544442</value>
+      <nits>3.63</nits>
+    </point>
+    <point>
+      <value>0.071009963</value>
+      <nits>5.014</nits>
+    </point>
+    <point>
+      <value>0.115354561</value>
+      <nits>7.07</nits>
+    </point>
+    <point>
+      <value>0.160480563</value>
+      <nits>10.1</nits>
+    </point>
+    <point>
+      <value>0.253662825</value>
+      <nits>19.97</nits>
+    </point>
+    <point>
+      <value>0.327114671</value>
+      <nits>35.01</nits>
+    </point>
+    <point>
+      <value>0.368529010</value>
+      <nits>46.28</nits>
+    </point>
+    <point>
+      <value>0.422641141</value>
+      <nits>60.53</nits>
+    </point>
+    <point>
+      <value>0.492381324</value>
+      <nits>89.11</nits>
+    </point>
+    <point>
+      <value>0.564368041</value>
+      <nits>126.1</nits>
+    </point>
+    <point>
+      <value>0.627661653</value>
+      <nits>167.7</nits>
+    </point>
+    <point>
+      <value>0.670052745</value>
+      <nits>200.4</nits>
+    </point>
+    <point>
+      <value>0.713322915</value>
+      <nits>234.0</nits>
+    </point>
+    <point>
+      <value>0.762258254</value>
+      <nits>283.1</nits>
+    </point>
+    <point>
+      <value>0.799765579</value>
+      <nits>330.5</nits>
+    </point>
+    <point>
+      <value>0.851631178</value>
+      <nits>403.4</nits>
+    </point>
+    <point>
+      <value>0.899296738</value>
+      <nits>479.7</nits>
+    </point>
+    <point>
+      <value>0.943348310</value>
+      <nits>571.1</nits>
+    </point>
+    <point>
+      <value>0.943836687</value>
+      <nits>573.8</nits>
+    </point>
+    <point>
+      <value>0.966302012</value>
+      <nits>808.6</nits>
     </point>
     <point>
       <value>1.0</value>
-      <nits>800.0</nits>
+      <nits>1238.0</nits>
     </point>
   </screenBrightnessMap>
 
   <highBrightnessMode enabled="true">
-    <transitionPoint>0.85</transitionPoint>
+    <transitionPoint>0.943348310</transitionPoint>
     <minimumHdrPercentOfScreen>0.1</minimumHdrPercentOfScreen>
 
     <minimumLux>10000</minimumLux>
