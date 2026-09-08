@@ -131,6 +131,8 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti.recovery
 
 # Camera
+$(call inherit-product, device/meizu/meizu21Pro-meizucamera/device.mk)
+
 PRODUCT_PACKAGES += \
     advancedSample_camera_extensions.xml \
     android.hardware.camera.provider-V1-external-service \

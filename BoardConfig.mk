@@ -241,6 +241,7 @@ BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+include device/meizu/meizu21Pro-meizucamera/BoardConfig.mk
 
 # Vendor security patch
 VENDOR_SECURITY_PATCH := 2023-10-05
