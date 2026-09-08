@@ -1,4 +1,5 @@
 genfscon sysfs /class/qcom-battery/wireless_boost_en u:object_r:sysfs_powershare:s0
+genfscon sysfs /devices/virtual/meizu/cpu_temp/temp u:object_r:vendor_sysfs_meizu_cpu_temp:s0
 genfscon sysfs /devices/virtual/meizu/mz_thermal_log/scene u:object_r:thermal_scene_sysfs:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a80000.i2c/i2c-5/5-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a80000.i2c/i2c-6/6-0028/wakeup u:object_r:sysfs_wakeup:s0
