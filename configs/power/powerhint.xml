@@ -201,7 +201,7 @@
         <!--L CPU - Disable schedutil PL -->
         <!--B CPU - Disable schedutil PL -->
         <!--B CPU - Set hispeed load 99 -->
-        <!--UPMIGRATE - 50 85 -->
+        <!--UPMIGRATE - 50 90 -->
         <!--DOWNMIGRATE - 10 85 -->
         <!--SCHED_IDLE_ENOUGH Set 0 -->
         <!--L CPU - Set hispeed freq 787200 -->
@@ -214,7 +214,7 @@
             Id="0x00001330" Enable="true" Timeout="0" Target="pineapple"
             Resources="0x4183C000, 0x21, 0x41834000, 0x64, 0x41838000, 0, 0x43034000, 0x21, 0x43020000, 0x64,
             0x43024000, 0, 0x4303C000, 0x858B8 ,0x40804100, 0x46C, 0x40800000, 0x506,0x41444100, 0, 0x41444000, 0, 0x41440000, 0x63,
-            0x40CE0000, 0x0032000A, 0x40CE0200, 0x00550055, 0x43C0C000, 0, 0x4143C100, 0x313, 0x41010300, 1,
+            0x40CE0000, 0x0032000A, 0x40CE0200, 0x005A0055, 0x43C0C000, 0, 0x4143C100, 0x313, 0x41010300, 1,
             0x41014300, 0x14, 0x4144C100, 0x87F00, 0x4144C300, 0x96000, 0x42C40000, 1"/>
 
         <!--camera 30fps-->
@@ -229,7 +229,7 @@
         <!--L CPU - Disable schedutil PL -->
         <!--B CPU - Disable schedutil PL -->
         <!--B CPU - Set hispeed load 99 -->
-        <!--UPMIGRATE - 50 85 -->
+        <!--UPMIGRATE - 50 90 -->
         <!--DOWNMIGRATE - 10 85 -->
         <!--SCHED_IDLE_ENOUGH Set 0 -->
         <!--L CPU - Set hispeed freq 787200 -->
@@ -240,7 +240,7 @@
             Id="0x00001331" Enable="true" Timeout="0" Target="pineapple"
             Resources="0x4183C000, 0x21, 0x41834000, 0x64, 0x41838000, 0, 0x43034000, 0x21,
             0x43020000, 0x64, 0x43024000, 0, 0x4303C000, 0x858B8 ,0x40804100, 0x459, 0x41444100, 0, 0x41444000, 0, 0x41440000, 0x63,
-            0x40CE0000, 0x0032000A, 0x40CE0200, 0x00550055, 0x41008000, 0, 0x41008100, 0, 0x41008200, 0, 0x43C0C000, 0, 0x4143C100, 0x313,
+            0x40CE0000, 0x0032000A, 0x40CE0200, 0x005A0055, 0x41008000, 0, 0x41008100, 0, 0x41008200, 0, 0x43C0C000, 0, 0x4143C100, 0x313,
             0x41010300, 1, 0x41014300, 0x14, 0x42C40000, 1"/>
 
         <!--camera 60fps-->
@@ -255,7 +255,7 @@
         <!--L CPU - Disable schedutil PL -->
         <!--B CPU - Disable schedutil PL -->
         <!--B CPU - Set hispeed load 99 -->
-        <!--UPMIGRATE - 50 85-->
+        <!--UPMIGRATE - 50 90-->
         <!--DOWNMIGRATE - 10 85-->
         <!--SCHED_IDLE_ENOUGH Set 0 -->
         <!--L CPU - Set hispeed freq 787200 -->
@@ -266,7 +266,7 @@
             Id="0x00001332" Enable="true" Timeout="0" Target="pineapple"
             Resources="0x4183C000, 0x10, 0x41834000, 0x64, 0x41838000, 0, 0x43034000, 0x10,
             0x43020000, 0x64, 0x43024000, 0, 0x4303C000, 0x17BA38,  0x40804100, 0x459, 0x41444100, 0, 0x41444000, 0, 0x41440000, 0x63,
-            0x40CE0000, 0x0032000A, 0x40CE0200, 0x00550055, 0x41008000, 0, 0x41008100, 0, 0x41008200, 0, 0x43C0C000, 0, 0x4143C100, 0x313,
+            0x40CE0000, 0x0032000A, 0x40CE0200, 0x005A0055, 0x41008000, 0, 0x41008100, 0, 0x41008200, 0, 0x43C0C000, 0, 0x4143C100, 0x313,
             0x41010300, 1, 0x41014300, 0x14, 0x42C40000, 1"/>
 
         <!--camera HFR 120/240 fps-->
@@ -281,7 +281,7 @@
         <!--L CPU - Disable schedutil PL -->
         <!--B CPU - Disable schedutil PL -->
         <!--B CPU - Set hispeed load 99 -->
-        <!--UPMIGRATE - 50 85-->
+        <!--UPMIGRATE - 50 90-->
         <!--DOWNMIGRATE - 10 85-->
         <!--B CPU - Disable Core Control -->
         <!--L CPU - Disable Core Control -->
@@ -290,7 +290,7 @@
             Id="0x00001333" Enable="true" Timeout="0" Target="pineapple"
             Resources="0x4183C000, 0x10, 0x41834000, 0x64, 0x41838000, 0, 0x43034000, 0x10,
             0x43020000, 0x64, 0x43024000, 0, 0x4303C000, 0x17BA38,  0x40804100, 0x459, 0x41444100, 0, 0x41444000, 0, 0x41440000, 0x63,
-            0x40CE0000, 0x0032000A, 0x40CE0200, 0x00550055, 0x41008000, 0, 0x41008100, 0, 0x41008200, 0"/>
+            0x40CE0000, 0x0032000A, 0x40CE0200, 0x005A0055, 0x41008000, 0, 0x41008100, 0, 0x41008200, 0"/>
 
         <!--camera 8k30-->
         <!--CPU-LLC BWMON - Set sample_ms 33 -->
@@ -303,7 +303,7 @@
         <!--L CPU - Disable schedutil PL -->
         <!--B CPU - Disable schedutil PL -->
         <!--B CPU - Set hispeed load 99 -->
-        <!--UPMIGRATE - 40 85-->
+        <!--UPMIGRATE - 40 90-->
         <!--DOWNMIGRATE - 10 85-->
         <!--B CPU - Disable Core Control -->
         <!--L CPU - Disable Core Control -->
@@ -317,7 +317,7 @@
             Id="0x00001335" Enable="true" Timeout="0" Target="pineapple"
             Resources="0x4183C000, 0x21, 0x41834000, 0x64, 0x41838000, 0, 0x43034000, 0x21,
             0x43020000, 0x64, 0x43024000, 0, 0x40804100, 0x459, 0x41444100, 0, 0x41444000, 0, 0x41440000, 0x63,
-            0x40CE0000, 0x0028000A, 0x40CE0200, 0x00550055, 0x41008000, 0, 0x41008100, 0, 0x41008200, 0, 0x43C0C000, 0, 0x4143C100, 0x313,
+            0x40CE0000, 0x0028000A, 0x40CE0200, 0x005A0055, 0x41008000, 0, 0x41008100, 0, 0x41008200, 0, 0x43C0C000, 0, 0x4143C100, 0x313,
             0x41010300, 1, 0x41014300, 0x14, 0x42C40000, 1"/>
 
         <!--video encode HFR 480 fps-->
