@@ -20,6 +20,7 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/meizu/meizu21Pro',
+    'hardware/meizu',
     'hardware/qcom-caf/sm8650',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/commonsys/display',
@@ -191,7 +192,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/com.qualcomm.mcx.policy.mfl.so',
         'vendor/lib64/com.qualcomm.qti.mcx.usecase.extension.so',
         'vendor/lib64/hw/camera.qcom.sm8650.so',
-        'vendor/lib64/hw/camera.qcom.so',
         'vendor/lib64/hw/com.qti.chi.offline.so',
         'vendor/lib64/hw/com.qti.chi.override.so',
         'vendor/lib64/libcamerapostproc.so',
@@ -227,6 +227,12 @@ blob_fixups: blob_fixups_user_type = {
             'android.hardware.graphics.allocator-V1-ndk.so',
             'android.hardware.graphics.allocator-V2-ndk.so',
         ),
+    'vendor/lib64/hw/camera.qcom.so': blob_fixup()
+        .replace_needed(
+            'android.hardware.graphics.allocator-V1-ndk.so',
+            'android.hardware.graphics.allocator-V2-ndk.so',
+        )
+        .add_needed('libcamera_metadata_meizu.so'),
     'vendor/lib64/libVoiceSdk.so': blob_fixup()
         .replace_needed(
             'libtensorflowlite_c.so',

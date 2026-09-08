@@ -2,6 +2,9 @@
 audio.sys.noisy.broadcast.delay=600
 audio.sys.offload.pstimeout.secs=3
 
+# Camera
+ro.vendor.camera.no_vts=1
+
 # Charger
 ro.charger.enable_suspend=1
 
