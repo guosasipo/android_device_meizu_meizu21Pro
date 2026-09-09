@@ -243,12 +243,16 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 include device/meizu/meizu21Pro-meizucamera/BoardConfig.mk
 
-# Vendor security patch
+# Security patch
+BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 VENDOR_SECURITY_PATCH := 2023-10-05
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += \
+    --prop com.android.build.boot.os_version:$(PLATFORM_VERSION_LAST_STABLE) \
+    --prop com.android.build.boot.security_patch:$(BOOT_SECURITY_PATCH)
 BOARD_AVB_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
