@@ -3148,13 +3148,6 @@
         <boolean name="carrier_wfc_supports_wifi_only_bool" value="true" />
         <boolean name="carrier_wfc_supports_ims_preferred_bool" value="true" />
     </carrier_config>
-    <carrier_config>
-        <string-array name="ratchet_rat_families" num="3">
-            <item value="1,2" />
-            <item value="7,8,12" />
-            <item value="3,11,9,10,15" />
-        </string-array>
-    </carrier_config>
     <carrier_config mcc="999">
         <boolean name="is_private_network" value="true" />
     </carrier_config>
