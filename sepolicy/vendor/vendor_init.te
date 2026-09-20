@@ -5,5 +5,5 @@ set_prop(vendor_init, vendor_qcc_prop)
 set_prop(vendor_init, vendor_ssr_prop)
 
 allow vendor_init proc_hung_task:file w_file_perms;
-allow vendor_init vendor_sysfs_aw20072:file setattr;
+allow vendor_init vendor_sysfs_aw20072:file { open setattr write };
 allow vendor_init vendor_sysfs_ssr_toggle:file w_file_perms;

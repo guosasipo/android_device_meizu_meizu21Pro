@@ -1,0 +1,12 @@
+type aw_light_app, domain, coredomain;
+app_domain(aw_light_app)
+
+hal_client_domain(aw_light_app, hal_light)
+
+allow aw_light_app app_api_service:service_manager find;
+allow aw_light_app cameraserver_service:service_manager find;
+allow aw_light_app { audioserver_service mediaserver_service }:service_manager find;
+
+allow aw_light_app self:netlink_kobject_uevent_socket { bind create getattr read setopt };
+allow aw_light_app sysfs_type:dir search;
+allow aw_light_app sysfs_powershare_status:file { getattr open read };

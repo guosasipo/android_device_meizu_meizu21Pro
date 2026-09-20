@@ -6,6 +6,7 @@
 /sys/class/qcom-battery wireless_boost_en 0660 system system
 /sys/class/leds/aw20072_led all_light 0660 system system
 /sys/class/leds/aw20072_led effect 0660 system system
+/sys/class/leds/aw20072_led frame 0660 system system
 /sys/class/power_supply/battery charge_control_end_threshold 0660 system system
 /sys/class/power_supply/battery charge_control_start_threshold 0660 system system
 /sys/devices/platform/main_touch.0 gesture/double_en 0660 system system

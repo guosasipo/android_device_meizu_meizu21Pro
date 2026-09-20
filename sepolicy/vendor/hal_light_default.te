@@ -1,1 +1,4 @@
 allow hal_light_default vendor_sysfs_aw20072:file { getattr open write };
+
+binder_call(hal_light_default, system_suspend_server)
+allow hal_light_default hal_system_suspend_service:service_manager find;

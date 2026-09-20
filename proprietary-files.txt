@@ -1276,22 +1276,6 @@ vendor/firmware/fingerprint.b07
 vendor/firmware/fingerprint.b08
 vendor/firmware/fingerprint.mdt
 
-# Flashlight (Firmware)
-vendor/firmware/aw20072_led_blue_on.bin
-vendor/firmware/aw20072_led_breath_blue.bin
-vendor/firmware/aw20072_led_breath_cyan.bin
-vendor/firmware/aw20072_led_breath_green.bin
-vendor/firmware/aw20072_led_breath_orange.bin
-vendor/firmware/aw20072_led_breath_pink.bin
-vendor/firmware/aw20072_led_breath_purple.bin
-vendor/firmware/aw20072_led_breath_red.bin
-vendor/firmware/aw20072_led_breath_tender_green.bin
-vendor/firmware/aw20072_led_breath_white.bin
-vendor/firmware/aw20072_led_breath_yellow.bin
-vendor/firmware/aw20072_led_green_on.bin
-vendor/firmware/aw20072_led_red_on.bin
-vendor/firmware/aw20072_led_white_on.bin
-
 # FM
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
