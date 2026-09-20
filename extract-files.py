@@ -95,6 +95,8 @@ blob_fixups: blob_fixups_user_type = {
             r'    chmod 664 /sys/bus/coresight/devices/coresight-modem-diag\n',
             '',
         ),
+    'vendor/etc/sensors/hals.conf': blob_fixup()
+        .regex_replace(r'(?m)^sensors\.qsh\.so$', 'sensors.qsh_wrapper.so'),
     (
         'vendor/lib64/libdpps.so',
         'vendor/lib64/libsnapdragoncolor-manager.so',

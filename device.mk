@@ -169,10 +169,6 @@ $(foreach display_id, 4630947039571902851 4630946596494493059, \
     ) \
 )
 
-# Doze
-PRODUCT_PACKAGES += \
-    MeizuDoze
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
@@ -352,7 +348,8 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal \
     sensors.dynamic_sensor_hal \
-    sensors.meizu
+    sensors.meizu \
+    sensors.qsh_wrapper
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_ODM)/etc/sensors/hals.conf
