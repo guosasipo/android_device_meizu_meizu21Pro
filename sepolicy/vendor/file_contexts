@@ -12,5 +12,5 @@
 
 /mnt/vendor/persist/tof(/.*)? u:object_r:vendor_persist_dtof_file:s0
 
-/sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/99c000\.i2c/(.*?)/leds/aw20072_led/(all_light|effect) u:object_r:vendor_sysfs_aw20072:s0
+/sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/99c000\.i2c/(.*?)/leds/aw20072_led/(all_light|effect|frame) u:object_r:vendor_sysfs_aw20072:s0
 /sys/devices/soc0/subset_parts u:object_r:vendor_sysfs_subset_parts:s0

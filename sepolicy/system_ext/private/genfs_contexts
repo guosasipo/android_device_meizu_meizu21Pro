@@ -1,0 +1,1 @@
+genfscon sysfs /class/qcom-battery/reverse_chg_state u:object_r:sysfs_powershare_status:s0
