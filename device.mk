@@ -18,9 +18,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
-# pKVM userspace
-$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
-
 # Qualcomm common configuration
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
