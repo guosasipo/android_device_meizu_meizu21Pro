@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_meizu21Pro.mk
+    $(LOCAL_DIR)/custom_meizu21Pro.mk

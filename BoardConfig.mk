@@ -95,8 +95,6 @@ BOARD_BOOTCONFIG := \
     androidboot.hypervisor.protected_vm.supported=false
 
 BOARD_KERNEL_CMDLINE := \
-    bootinfo.fingerprint=$(LINEAGE_VERSION) \
-    mtdoops.fingerprint=$(LINEAGE_VERSION) \
     nosoftlockup \
     sysrq_always_enabled \
     sysctl.kernel.firmware_config.force_sysfs_fallback=1 \
@@ -183,9 +181,6 @@ BOARD_USES_METADATA_PARTITION := true
 TARGET_OTA_ASSERT_DEVICE := meizu21Pro
 
 # Partitions
-BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
--include vendor/lineage/config/BoardConfigReservedSize.mk
-
 BOARD_FLASH_BLOCK_SIZE := 262144
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296

@@ -4,6 +4,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+    <bool name="config_show_battery_cycle_count">true</bool>
     <bool name="config_show_smooth_display">true</bool>
     <integer name="config_network_scan_helper_max_search_time_sec">254</integer>
     <integer name="config_vibration_supported_intensity_levels">3</integer>

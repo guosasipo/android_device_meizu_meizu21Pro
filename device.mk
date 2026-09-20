@@ -270,9 +270,6 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlayMeizu21Pro \
     ConnectivityOverlayMeizu21Pro \
     FrameworkOverlayMeizu21Pro \
-    LineageSDKOverlayMeizu21Pro \
-    LineagePartsOverlayMeizu21Pro \
-    LineageSettingsOverlayMeizu21Pro \
     NcmTetheringOverlay \
     NetworkStackOverlayMeizu21Pro \
     NfcOverlayMeizu21Pro \

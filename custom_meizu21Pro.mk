@@ -8,15 +8,16 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common PixelOS stuff.
+TARGET_SCREEN_WIDTH := 1440
+$(call inherit-product, vendor/custom/config/common_full_phone.mk)
 
 # Inherit from meizu21Pro device.
 $(call inherit-product, device/meizu/meizu21Pro/device.mk)
 
 # Device identifier
 PRODUCT_DEVICE := meizu21Pro
-PRODUCT_NAME := lineage_meizu21Pro
+PRODUCT_NAME := custom_meizu21Pro
 PRODUCT_BRAND := meizu
 PRODUCT_MODEL := MEIZU 21 Pro
 PRODUCT_MANUFACTURER := meizu
