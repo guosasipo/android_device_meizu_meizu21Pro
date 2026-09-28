@@ -93,6 +93,14 @@ blob_fixups: blob_fixups_user_type = {
             r'    chmod 664 /sys/bus/coresight/devices/coresight-modem-diag\n',
             '',
         ),
+    'vendor/etc/perf/perfconfigstore.xml': blob_fixup()
+        .regex_replace(
+            r'(?m)^([ \t]+<Prop Name="(?:'
+            r'vendor\.debug\.enable\.(?:lm|memperfd)|'
+            r'ro\.vendor\.perf\.(?:ss|ssv2|lal|lgl)'
+            r')"[ \t]+Value=")true(")',
+            r'\1false\2',
+        ),
     'vendor/etc/sensors/hals.conf': blob_fixup()
         .regex_replace(r'(?m)^sensors\.qsh\.so$', 'sensors.qsh_wrapper.so'),
     (
