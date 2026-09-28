@@ -76,8 +76,6 @@ blob_fixups: blob_fixups_user_type = {
             r'\$\{ro\.boot\.vendor\.qspa:-default\}',
             'default',
         ),
-    'system_ext/priv-app/WfdService/WfdService.apk': blob_fixup()
-        .apktool_patch('blob-patches/WfdService.patch'),
     'vendor/etc/init/init.spdaemon.rc': blob_fixup()
         .regex_replace(
             'ro.product.device=pineapple',
@@ -251,8 +249,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libbinder_shim.so'),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
-    'system_ext/lib64/libwfdnative.so': blob_fixup()
-        .add_needed('libinput_shim.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libbinder_shim.so')
         .add_needed('libhidlbase_shim.so'),
