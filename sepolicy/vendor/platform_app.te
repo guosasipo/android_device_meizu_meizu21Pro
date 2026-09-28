@@ -1,4 +1,5 @@
 not_recovery(`hal_client_domain(platform_app, hal_vibrator)')
 hal_client_domain(platform_app, hal_meizu_fido)
+hal_client_domain(platform_app_36, hal_fingerprint)
 
 get_prop(platform_app, vendor_fido_prop)
